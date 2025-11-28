@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build Vulkan Engine",
+            "command": "C:/Mingw_Kit/w64devkit/bin/g++.exe",
+            "args": [
+                "-g",
+                "-std=c++17",
+                "-mconsole",
+
+                // Include paths
+                "-I${workspaceFolder}/include",
+                "-I${workspaceFolder}/include/glad",
+                "-I${workspaceFolder}/buffers",
+                "-IC:/libs/glm",
+                "-IC:/VulkanSDK/1.4.328.1/Include",
+
+                // Library paths
+                "-L${workspaceFolder}/lib",
+                "-LC:/VulkanSDK/1.4.328.1/Lib",
+
+                // Source files
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/glad.c",
+                "${workspaceFolder}/src/stb_image.cpp",
+                "${workspaceFolder}/src/shaderClass.cpp",
+                "${workspaceFolder}/buffers/EBO.cpp",
+                "${workspaceFolder}/buffers/VAO.cpp",
+                "${workspaceFolder}/buffers/VBO.cpp",
+
+                // Linking
+                "-lvulkan-1",
+                "-lglfw3",
+                "-lopengl32",
+                "-lgdi32",
+                "-luser32",
+                "-lshell32",
+                "-lws2_32",
+                "-lversion",
+
+                // Output
+                "-o",
+                "${workspaceFolder}/vulkan_engine.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build Vulkan engine with w64devkit"
+        }
+    ]
+}
